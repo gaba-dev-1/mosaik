@@ -1,0 +1,12 @@
+{
+  "name": "mosaik",
+  "version": "1.0.0",
+  "description": "Adaptive workspace organizer",
+  "author": "Gaba Dev",
+  "license": "CC0-1.0",
+  "scripts": {
+    "dev": "tauri dev",
+    "build": "tauri build",
+    "test": "cargo test"
+  }
+}
