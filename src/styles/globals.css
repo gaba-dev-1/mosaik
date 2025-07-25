@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-heading: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    
+    /* Enhanced Deep Space Color Palette */
+    --bg-primary: #0A0E1A;     
+    --bg-secondary: #111827;   
+    --bg-surface: #1F2937;     
+    --bg-elevated: #374151;    
+
+    /* Harmonious Accent Colors */
+    --accent-primary: #8B5CF6;  /* Purple */
+    --accent-hover: #A78BFA;    
+    --accent-active: #7C3AED;   
+    --accent-teal: #14B8A6;     /* Teal */
+    --accent-amber: #F59E0B;    /* Amber */
+    --accent-blue: #3B82F6;     /* Blue */
+    --accent-purple: #8B5CF6;   /* Purple */
+    --accent-emerald: #10B981;  /* Emerald */
+
+    /* CTA Theme */
+    --cta-primary: #3B82F6;
+    --cta-hover: #2563EB;
+
+    /* Text with improved readability */
+    --text-primary: #F9FAFB;    
+    --text-secondary: #D1D5DB;  
+    --text-muted: #9CA3AF;      
+    --text-inverse: #FFFFFF;    
+
+    /* Refined UI elements */
+    --border-light: rgba(255, 255, 255, 0.1);  
+    --shadow-standard: 0 8px 30px rgba(0, 0, 0, 0.4);  
+    --overlay-bg: rgba(10, 14, 26, 0.9);  
+    
+    /* Premium elements with enhanced harmony */
+    --glow-subtle: 0 0 20px rgba(59, 130, 246, 0.15);  
+    --glow-accent: 0 0 25px rgba(59, 130, 246, 0.25);  
+    --gradient-soft: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+    --gradient-highlight: linear-gradient(45deg, var(--accent-purple), var(--accent-blue), var(--accent-teal));
+    --surface-glass: rgba(31, 41, 55, 0.85);  
+    
+    /* Enhanced section-specific backgrounds */
+    --bg-hero: linear-gradient(135deg, #0A0E1A 0%, #111827 50%, #0F172A 100%);
+    --bg-features: #0A0E1A;
+    --bg-problem: #111827;
+    --bg-solution: #0A0E1A;
+    --bg-showcase: #111827;
+    --bg-testimonials: #0A0E1A;
+    --bg-cta: #111827;
+    
+    /* Enhanced accent elements */
+    --accent-gradient: linear-gradient(135deg, rgba(139, 92, 246, 0.12), rgba(59, 130, 246, 0.08), transparent 60%);
+    --accent-glow: radial-gradient(circle at 50% 0%, rgba(139, 92, 246, 0.15), rgba(59, 130, 246, 0.1), transparent 70%);
+    --accent-dot-pattern: radial-gradient(rgba(139, 92, 246, 0.2) 1px, transparent 1px);
+  }
+  
+  html {
+    @apply font-body scroll-smooth;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+  
+  body {
+    @apply overflow-x-hidden;
+    background-color: var(--bg-primary);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading font-bold;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+  
+  h1 {
+    @apply text-heading1;
+  }
+  
+  h2 {
+    @apply text-heading2;
+  }
+  
+  h3 {
+    @apply text-heading3;
+  }
+  
+  h4 {
+    @apply text-heading4;
+  }
+  
+  p {
+    @apply leading-relaxed;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background-color: var(--cta-primary);
+    color: var(--text-inverse);
+  }
+
+  *:focus-visible {
+    @apply outline-none ring-2;
+    ring-color: var(--cta-primary);
+    ring-offset-color: var(--bg-primary);
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
+}
+
+@layer components {
+  .bg-primary-section {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  .bg-secondary-section {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  .bg-hero-section {
+    background: var(--bg-hero);
+    color: var(--text-primary);
+  }
+
+  .btn {
+    @apply inline-flex items-center justify-center rounded-xl px-6 py-3 text-base font-medium transition-all duration-300 focus:outline-none transform will-change-transform;
+  }
+  
+  .btn-primary {
+    @apply btn;
+    background-color: var(--cta-primary);
+    color: var(--text-inverse);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  }
+  
+  .btn-primary:hover {
+    background-color: var(--cta-hover);
+    box-shadow: 0 4px 16px rgba(59, 130, 246, 0.4);
+    transform: translateY(-1px);
+  }
+  
+  .btn-secondary {
+    @apply btn;
+    background-color: var(--bg-elevated);
+    color: var(--text-secondary);
+    border: 1px solid var(--border-light);
+    box-shadow: none;
+  }
+  
+  .btn-secondary:hover {
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+  }
+  
+  .btn-ghost {
+    @apply btn;
+    background: transparent;
+    color: var(--text-secondary);
+  }
+  
+  .section {
+    @apply py-24 md:py-32 lg:py-40;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-text-fill-color: transparent;
+    background-image: var(--gradient-highlight);
+    filter: none !important;
+    position: relative;
+  }
+
+  .card {
+    @apply rounded-2xl transition-all duration-300;
+    background-color: var(--bg-surface);
+    border: 0.5px solid var(--border-light);
+    box-shadow: var(--shadow-standard);
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  }
+
+  .elevation-1 {
+    background-color: var(--bg-surface);
+    border: 0.5px solid var(--border-light);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.08);
+  }
+  
+  .elevation-2 {
+    background-color: var(--bg-elevated);
+    border: 0.5px solid var(--border-light);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .elevation-3 {
+    background-color: var(--bg-elevated);
+    border: 0.5px solid var(--border-light);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.12);
+  }
+
+  .dot-pattern {
+    position: relative;
+  }
+  
+  .dot-pattern::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: var(--accent-dot-pattern);
+    background-size: 20px 20px;
+    z-index: -1;
+    opacity: 0.5;
+  }
+
+  .subtle-link {
+    @apply text-cta-primary hover:text-cta-hover transition-colors duration-200 text-sm font-medium;
+  }
+}
